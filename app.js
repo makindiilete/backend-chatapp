@@ -4,9 +4,10 @@ const http = require('http');
 const app = express();
 
 
-const port = normalizePort(process.env.PORT || '3000');
+// const port = normalizePort(process.env.PORT || '3000');
+const port = process.env.PORT || 3000;
 app.set('port', port);
-console.log("Server is up and running!");
+console.log("Server is up and running on " + port);
 
 
 const server = http.createServer(app);
@@ -15,7 +16,7 @@ const io = require('socket.io').listen(server);
 
 io.on('connection',(socket)=>{
 
-  console.log('new connection made.');
+  // console.log('new connection made.');
 
 
   socket.on('join', function(data){
